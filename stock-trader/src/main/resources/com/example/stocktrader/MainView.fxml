@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox xmlns="http://javafx.com/javafx/17.0.6"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.example.stocktrader.Controller">
+    <Label text="Stock Market Data" />
+    <TableView fx:id="stockTableView">
+        <columns>
+            <TableColumn text="Symbol" fx:id="symbolColumn" />
+            <TableColumn text="Open" fx:id="openColumn" />
+            <TableColumn text="High" fx:id="highColumn" />
+            <TableColumn text="Low" fx:id="lowColumn" />
+            <TableColumn text="Price" fx:id="priceColumn" />
+            <TableColumn text="Change" fx:id="changeColumn" />
+            <TableColumn text="Change %" fx:id="changePercentColumn" />
+            <TableColumn text="Volume" fx:id="volumeColumn" />
+        </columns>
+    </TableView>
+    <HBox alignment="CENTER" spacing="10">
+        <TextField fx:id="addStockTextField" promptText="Enter Symbol" HBox.hgrow="ALWAYS" />
+        <Button text="Add" fx:id="addButton" onAction="#handleAddStock" />
+        <Button text="Remove" fx:id="removeButton" onAction="#handleRemoveStock" />
+        <HBox HBox.hgrow="ALWAYS" alignment="CENTER_RIGHT" spacing="10">
+            <TextField fx:id="quantityTextField" promptText="Quantity" />
+            <Button text="Buy" fx:id="buyButton" style="-fx-background-color: green; -fx-text-fill: white;" />
+            <Button text="Sell" fx:id="sellButton" style="-fx-background-color: red; -fx-text-fill: white;" />
+        </HBox>
+    </HBox>
+    <HBox spacing="10" alignment="CENTER_LEFT">
+    <Button text="Trade Records" fx:id="tradeRecordsButton" onAction="#showTradeRecords" />
+    <Button text="View Chart" fx:id="viewChartButton" onAction="#handleViewChart" />
+    </HBox>
+</VBox>
